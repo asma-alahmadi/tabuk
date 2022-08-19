@@ -1,0 +1,155 @@
+.ch-body{
+    background-color: #ccc;
+}
+
+.bg-img{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height:40rem;
+
+    img{
+        height: 100%;
+        width: 100vw;
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+        object-fit: cover;
+        transition: all .2s;
+        background-attachment: fixed;
+
+        &:hover{
+            filter: brightness(50%);
+        }
+        
+    }
+}
+
+.ch-container{
+    padding: 2rem 10rem ;
+    color: rgba($color-black, .8); 
+    position: relative;
+    margin-top: 9rem;
+        background-color: #ccc;
+
+}
+
+.checkout{
+    display: flex;
+    justify-content: space-between;
+    column-gap: 3rem;
+    margin-bottom: 5rem;
+
+    &__summary{
+        margin-bottom: 3rem;
+        font-size: 1.5rem;
+        padding: 1rem;
+        display: inline-block;
+    }
+}
+.under-line{
+    border-bottom: 1px solid #ccc;
+    display: inline-block;
+    padding: .5rem;
+}
+
+.details{
+    margin-bottom: 3rem;
+}
+
+.u-list{
+    padding: 1rem 3.5rem;
+    font-size: 1.5rem;
+
+    &__item{
+        list-style: none;
+        padding: 0 2rem;
+
+        &::before{
+            content: "-";
+            display: inline-block;
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-right: .5rem;
+            color: #118B9C;
+        }
+    }
+}
+.refund__policy {
+    font-size: 1.6rem;
+
+    div{
+        padding: 1rem 5.5rem;
+
+            &::before{
+                content: "-";
+                display: inline-block;
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin-right: .5rem;
+                color: #118B9C;
+            }
+    }
+}
+
+.payment{
+    width: 60%;
+}
+
+.bottom{
+    display: flex;
+    justify-content: space-between;
+}  
+
+.home-link{
+    align-self: center;
+    transition: all .2s;
+
+    &:hover{
+        transform: translateY(-3px);
+    }
+    a{
+        padding: .5rem 0;
+        text-decoration: none;
+        border-bottom: 1px solid $color-black;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: $color-black;
+       
+    }
+    
+}
+
+/////////////////////////// RESPONSIVE DESIGN ///////////////////////////////
+@media only screen and(max-width: $bp-midum){
+    .bg-img{
+        height: 28rem;
+    }
+    .ch-container{
+        padding: 7rem;
+        margin-top: 4rem;
+    }
+
+    .checkout{
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: $bp-small){
+    .checkout__heading{
+        margin-bottom: 1rem !important;
+    }
+    .bottom{
+        flex-direction: column;
+    }
+
+    .home-link{
+        align-self: flex-start;
+    }
+
+    .u-list{
+        padding: 1rem;
+    }
+
+    .refund__policy{
+        padding: 0;
+    }
+}

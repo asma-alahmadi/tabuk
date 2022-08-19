@@ -1,0 +1,52 @@
+{% extends 'tabuk/layout.html' %}
+
+{% load static %}
+
+{% block title %}Packages{% endblock %}
+
+
+
+{% block body %}
+    {% if packages %}
+
+    <div class="u-center-text mt-lg " id="package__header">
+        <h2 class="header-secondary">
+            Our Packages
+        </h2>
+    </div>
+
+    <main>
+        <div class="container">
+            {% for package in packages %} 
+            <div class="card">
+                <div class="package package-sanaa">
+                    <div class="package__picture package__picture--{{ package.id }}">
+                        <img class="package__img" src="{{ package.image.url }}" alt="Package image">
+                    </div>
+
+                    <div class="package__heading">
+                        <span class="package__heading--span heading-3">{{ package.destination }}</span>
+                    </div>
+                    
+                    <div class="package__details">
+                        <ol>
+                            <li>{{ package.description }}</li>
+                            <li>{{ package.duration }} day tours.</li>
+                            <li id="cost">{{ package.cost }}$ per person.</li>
+                        </ol>
+                    </div>
+                    <div class="u-center-text">
+                        <a href="{% url 'book' package.slug %}" class="book-btn">Book Now</a>
+                    </div>
+                    
+                </div>
+            </div>
+           {% endfor %} 
+        </div>
+    </main>
+    {% else %}
+    <div class="mt-hg heading-3" style="padding: 3rem">
+        <p>Sorry, There are no available packages right now</p>
+    </div>
+ {% endif %}
+{% endblock %}

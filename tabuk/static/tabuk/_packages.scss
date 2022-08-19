@@ -1,0 +1,97 @@
+.container{
+    padding: 2rem 10rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 2rem;
+    row-gap: 4rem;
+    position: relative;
+}
+
+.card{
+    box-shadow: 0 1rem 2rem rgba($color-black, .2);
+    height: 51rem;
+    width: 30rem;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all .2s ;
+
+
+    &:hover{
+        transform: translateY(-1.5rem);
+    }
+}
+
+.package{
+
+    &__picture{
+        height: 23rem;
+        width: 100%;
+
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        
+    }
+
+    &__heading{
+        text-align: center;
+        transform: translateY(-3rem);
+        &--span{
+            background-color: #fff;
+            display: inline-block;
+            padding: .5rem 1rem;
+
+        }
+    }
+
+   
+
+    &__details{
+        padding: 1.5rem 3rem;
+        font-size: 1.5rem;
+        margin-top: -3rem;
+        height: 14rem;
+
+        ol{
+            padding: .5rem 2rem;
+        }
+        
+
+        li{
+            padding: 0;
+            margin: 0;
+            list-style: square;
+        }
+    }   
+}
+
+// BOOK LINK
+.book-btn{
+    text-decoration: none;
+    font-size: 1.7rem;
+    display: inline-block;
+    padding: 1.5rem 3.5rem;
+    margin: 2.5rem;
+    background-color: #415870;
+    color: $color-primary-light;
+    cursor: pointer;
+    border-radius: 10rem;
+    transition: all .2s ease;
+
+    &:hover{
+        transform: scale(1.1) rotate(.2deg);
+        color: $color-primary-light;
+        text-decoration: none;
+    }
+}
+
+/////////////////////////// RESPONSIVE DESIGN ///////////////////////////////
+@media only screen and(max-width: $bp-small){
+    #package__header{
+        margin-top: 11rem;
+    }
+}

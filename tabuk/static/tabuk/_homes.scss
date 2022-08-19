@@ -1,0 +1,321 @@
+
+///////////////// HEADER /////////////////////
+
+.header{
+    height: 100vh;
+    width: 100vw;
+
+    &__text--box{
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: $font-display;
+        
+        p{
+            color: white; 
+            font-size: 5rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            padding: 1.5rem 3.5rem;
+            border-radius: 2.5rem;
+        }
+    }   
+    
+    &__btn{
+        max-width: 20rem;
+        a{
+            text-decoration: none;
+        }
+    }
+    &__logo--box{
+        height: 100%;
+        width: 100vw;
+    }
+
+    &__logo--img{
+          background-image: linear-gradient(to right bottom, rgba($color-black, .3), rgba($color-black, .3)), url(../media/tabuk.jpg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          height: 100%;
+          width: 100%;
+          object-fit: cover; 
+          background-position: center;
+    }
+    
+}
+
+
+/////////////////////////// SECTION  ABOUT ///////////////////////////////
+.section__about{
+    padding: 10rem 4rem;
+    font-size: 1.5rem; 
+    height: 95vh;
+    width: 100vw;
+    
+    h2{
+        margin-bottom: 3rem;
+    }
+}
+.about--container{
+    max-width: 105rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+}
+
+.paragraph{ 
+    font-size: 1.5rem;
+    line-height: 1.9;
+}
+
+/////////////////////////// MAP ///////////////////////////////
+.map{
+    iframe{
+        box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
+    }
+}
+
+
+
+/////////////////////////// SECTION  MORE ///////////////////////////////
+
+.more{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    &__img{
+        width: 100%;
+        height: 100%;
+        background-image: url(../media/coffee.jpeg);
+        background-size: cover;
+        background-position: bottom right;
+        
+    }
+
+    &__heading{
+        position: absolute;
+        top: 7rem;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    &__paragraph{
+        font-size: 1.6rem;
+        padding: 2.5rem 5rem;
+        margin: 3rem;
+        margin-bottom: 5rem;
+        position: absolute;
+        top: 15%;
+        width: 50%;
+        height: 100%;
+    }
+}
+
+
+
+
+/////////////////////// BOOKING/////////////////////// 
+.book{
+    height: 100vh;
+    width: 100vw;
+
+    &__container{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+    }
+///// Left Side
+    &-left{
+        grid-column: 1 / 4;
+
+        padding: 4rem 8rem;
+    }
+
+    &__header{
+        font-size: 4rem;
+        font-family: $font-display;
+        color: #415870;
+        white-space: nowrap;
+        margin-bottom: 4rem;     
+    }
+
+    &__form{
+        display: flex;
+        flex-direction: column;
+        row-gap: 2rem;
+        margin-bottom: 5rem;
+    }
+
+    &__input{
+        font-size: 1.6rem;
+        padding: 1rem 1.5rem;
+        color: #494848;
+        border: none;
+        border-radius: .5rem;
+
+        &:focus{
+            outline: none;
+        }
+        
+        &::-webkit-input-placeholder{
+            color: #92979c;
+        }
+
+        &::-webkit-datetime-edit-text{
+            color: #92979c;
+        }
+
+        &::-webkit-datetime-edit-month-field {color: #494848; }
+        &::-webkit-datetime-edit-day-field {color: #494848; }
+        &::-webkit-datetime-edit-year-field {color: #494848; } 
+
+        &::-moz-datetime-edit-month-field {color: #494848; }
+        &::-moz-datetime-edit-day-field {color: #494848; }
+        &::-moz-datetime-edit-year-field {color: #494848; } 
+    }
+
+
+
+/////////////////////////// RIGHT SIDE ///////////////////////////////
+    &-right{
+        grid-column: 4 / -1;
+        grid-row: 1 / -1;
+    }
+
+    &__bg{
+        background-image: url(../media/book-bg-1.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        object-fit: cover;
+        height: 100vh;
+        width: auto
+    }
+
+}
+
+
+/////////////////////////// RESPONSIVE DESIGN ///////////////////////////////
+@media only screen and(max-width: $bp-largest){
+    .section__about{
+        height: 85%;
+        padding: 5rem 4rem;
+    }
+}
+
+@media only screen and (max-width: $bp-large){
+    .map, .about--btn{
+        align-self: center;
+    }
+
+    .more__paragraph{
+        font-size: 1.5rem;
+        margin: 2rem;
+        padding: .5rem;
+    }
+
+    .more__img{
+        background-image: url(../media/coffee1.jpeg);
+        background-position: top;
+    }
+}
+
+@media only screen and(max-width: $bp-midum){
+
+    .header{
+        height: 80vh;
+
+        &__text--box{
+            top: 48%;
+
+            p{
+                font-size: 3rem;
+            }
+        }
+    }
+
+    .more{
+        height: 85vh;
+    }
+
+    .more__paragraph{
+        font-size: 1.4rem;
+        margin: 3rem;
+        padding: 2rem;
+        width: 95vw;
+        top: 24%;
+    }
+}
+
+
+
+@media only screen and (max-width: $bp-small){
+
+    .header{
+        height: 50vh;
+
+        &__text--box{
+            top: 28%;
+
+            p{
+                font-size: 3rem;
+            }
+        }
+    }
+    
+    .book{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .book__container{
+        margin-top: 15rem;
+    }
+   
+    .book-left{
+        grid-column: 2 / 6;
+        padding: 3rem;
+    }
+    .book__form{
+        grid-gap: 3rem;
+    }
+    .book-right{
+        display: none;
+    }
+    .book__header{
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    .map{
+        iframe{
+            width: 35rem;
+        }
+    }
+    .more{
+        height: 78vh;
+    }
+    .more__img{
+        background-image: url(../media/coffee1.jpeg);
+        background-position: top;
+        height: 76%;
+    }
+
+    .more__paragraph{
+        font-size: 1.4rem;
+        margin: 2rem;
+        padding: 0.5rem;
+        top:12rem;
+    }
+
+    .more__heading{
+        top: 5rem;
+    }   
+
+    .packages__header{
+        margin-top: -5rem !important;
+    }
+}

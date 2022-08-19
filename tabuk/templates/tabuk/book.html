@@ -1,0 +1,38 @@
+{%  load static %}
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'tabuk/style.css' %}">
+    <title>Booking</title>
+</head>
+
+<body>
+
+  <div class="book">
+    <div class="book__container">
+      <div class="book-left">
+         <h2 class="book__header">Trip to {{ package.destination }}</h2>
+      
+          <form action="{% url 'book' package.slug %}" method="POST"  class="book__form">
+            {% csrf_token %}
+            <input type="text" class="book__input" placeholder="Your name" pattern="[A-Z\sa-z]{3,20}" name="name"> 
+            <input type="email" class="book__input" placeholder="Your email" name="email">
+            <input type="number" class="book__input" placeholder="Adults" name="adults" id="adults"> 
+            <input type="number" class="book__input" placeholder="Children" name="children" id="children"> 
+            <input placeholder="Select Start Date" class="book__input" type="text" onfocus="(this.type='date')" name="start_date">
+            <input type="submit" class="book__input" placeholder="Checkout" value="Checkout"> 
+          </form>
+      </div>
+      
+      <div class="book-right">
+        <div class="book__bg">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

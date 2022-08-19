@@ -1,0 +1,182 @@
+
+.fr-container{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.con-img{
+    grid-column: 1 / 4;
+    .img{
+        background-image: url(../media/yemen9.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        object-fit: cover;
+        height: 100vh;
+        width: auto
+    }
+    
+}
+
+.form{
+    padding: 1.5rem 5rem;
+    grid-column: 4 / -1;
+    margin-top: 10rem;
+
+
+    display: flex;
+    flex-direction: column;
+    
+    h2{
+        margin-bottom: 5rem;
+    }
+
+    &__input{
+        width: 50%;
+        font-size: 2rem;
+        color: rgba($color-black, .8);
+        font-family: $font-primary;  
+        padding: 1.5rem 2rem;
+        margin-bottom: 1rem;
+        border: none;
+        border-bottom: 3px solid transparent;
+        display: block;
+        flex: 0 0 70%;
+        transition: all .2s;
+
+        &:focus{
+            outline: none;
+        }
+
+        &::-webkit-input-placeholder{
+            font-family: inherit;
+            font-size: inherit;
+        }
+    }
+
+    &__label{
+        font-size: 1.5rem;
+        color: $color-brown;
+        transition: all .2s;
+    }
+
+    &__input:placeholder-shown + &__label{
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+
+    p{
+        margin: 1.5rem;
+        font-size: 1.3rem;
+        color: rgba($color-black, .8);
+
+        a{
+            text-decoration: none;
+            color: $color-brown-dark;
+        }
+    }
+}
+
+input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
+
+// BUTTONS
+.btn{
+    border: 3px solid transparent;
+    padding: 1rem 2.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    background-color: #ccc;
+    color: $color-brown-dark;
+    transition: all .2s ease;
+
+    &:focus{
+        outline: none;
+    }
+
+    &:hover{
+        transform: scale(1.1) rotate(.5deg);
+        color: $color-brown-dark;
+        //background-color: $color-brown-dark;
+        //color: #ccc;
+    }
+}
+
+.btn-text{
+    display: inline-block;
+    font-size: 1.6rem;
+    font-family: $font-display;
+    text-decoration: none;
+    color: $color-brown-dark;
+    padding: .5rem;
+    margin-top: 1rem;
+    vertical-align: middle;
+    transition: all .2s ease;
+
+    &:hover{
+        text-decoration: none;
+    }
+    
+    span{
+        margin-top: 4px; 
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &:hover{
+        color: $color-white;
+        background-color: $color-brown-dark;
+    }
+}
+
+#img{
+   
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.imge{
+    position: absolute;
+    text-align: center;
+    font-size: 4rem;
+    width: 4rem;
+    height: 4rem;
+    cursor: pointer;
+    color: #ccc;
+    bottom: 7rem;
+}
+
+/////////////////////////// RESPONSIVE DESIGN ///////////////////////////////
+@media only screen and(max-width: $bp-midum){
+    .fr-container{
+        grid-template-rows: repeat(2, 1fr);
+    }
+    .con-img{
+        grid-row: 1 / 2;
+        grid-column: 1 / -1;
+
+        .img{
+            height: 100%;
+        }
+    }
+
+    .form{
+        width: 70rem;
+        grid-column: 1 / -1;
+        grid-row: 2 /-1;
+        align-self: flex-start;
+        margin-top: 5rem;
+
+        &__input{
+            width: 80%;
+        }
+    }
+}
+

@@ -1,0 +1,203 @@
+{% extends 'tabuk/layout.html' %}
+{% load static %}
+
+{% block body %}
+
+    <header class="header nave">
+        <div class="header__text--box">
+            <p>Wlcome To Tabuk </p>
+            <div class="header__btn u-center-block">
+                <a href="#about" class="btn">Discover</a>
+            </div>
+        </div>
+        <div class="header__logo--box">
+            <div class="header__logo--img">&nbsp;</div>
+        </div>
+    </header>
+
+
+
+
+<main>
+    <section class="section__about" id="about">
+        <div class="u-center-text ">
+            <h2 class="header-secondary">About Tabuk</h2>
+        </div>
+       <div class="about--container">
+        <div class="about--text">
+            <p class="paragraph">
+                <!--Yemen is a desert country in the Middle East on the southern tip of the Arabian Peninsula,
+                bordered in west by the Red Sea and the Bab-el-Mandeb Strait,
+                in north by Saudi Arabia and in north east by Oman.
+                Yemen has maritime borders with Djibouti, Eritrea, and Somalia.
+                With an area of 527,970 sq km (including the islands of Perim and Socotra),
+                the country is about the size of Sweden or about twice the size of Wyoming.
+                29.83 million people live in the country. Largest city and the national capital is Sana'a,
+                 situated in a mountain valley at an altitude of 2,200 m,
+                the Old City of Sana'a is a UNESCO World Heritage Site.
+                Yemen's primary seaport and economic center is Aden. Official language is Arabic. -->
+
+                The Tabuk region combines miscellaneous geographical and topographical elements of seas, plains,
+                mountains and ancient antiquities, as well as wonderful fair weather all year long, which made
+                a tourist destination that attracts the residents and guests of the region during the summer,
+                in addition to annual festivals that are under the supervision of the branch of the Saudi Commission for Tourism and National Heritage in the region.
+                Tabuk is located between An Nafud Desert from the east and the Red Sea from the west,
+                while five of its governorates are located on the Red Sea coast, which are the governorates of Haqil, Diba’,
+                Al Wajh, Amlaj and Al Bad’; An Nafud dunes are considered the most distinguished feature of the Taima’ Governorate. 
+
+  
+            </p>
+            
+        </div>
+        <div class="map">
+           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112309.79445754229!2d36.565902449999996!3d28.398699099999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15a9ad0594132365%3A0x6f40e3c6b6139acf!2z2KrYqNmI2YM!5e0!3m2!1sar!2ssa!4v1660745882649!5m2!1sar!2ssa" width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="about--btn">
+            <a href="#more" class="btn-text">More<span>&rarr;</span></a>
+        </div>
+        
+       </div>
+       <div class="">
+       
+        </div>   
+       
+    </section>
+
+<section class="more" id="more">
+    
+    <div class="more__img">
+        &nbsp;
+    </div>
+
+    <h3 class="heading-3 more__heading"> Tabuk... A Destination for Seekers of History and Sea </h3>
+
+    <p class="more__paragraph">
+        Tabuk City is known for its being one of the most important and biggest cities in the northern side of the Kingdom, and is characterized by authenticity and elegance. The establishment of the city dates back to 500 BC, and it has had many names over the years, and it has been known by its current name since the early years of Islam until now; among its most famous titles are the Tabuk of roses and the gate of the north.
+        <br> <br> 
+        The Tabuk Region is famous for being a major agricultural area in the Kingdom and agriculture is mostly centred in the Tabuk City in particular, where some 70% of the cultivated areas in the region can be found in Tabuk City and its suburbs, which can be attributed to the abundance of water in Tabuk, where the city is main source for water in the entire region due to its geographical nature that is known for its ability to store water. Among the most important agricultural produce in Tabuk are wheat, fruits and vegetables, as well as roses that are marketed locally and internationally, where roses are exported to some countries of the world.  
+
+The region is also home to a big number of archaeological sites, mainly in the Tabuk City, including the Tawbah Mosque.
+</section>
+
+
+
+<section class="packages" id="packages">
+    <div class="u-center-text mt-hg packages__header">
+        <h2 class="header-secondary">
+            Our Packages
+        </h2>
+    </div>
+    
+
+    <div class="container">
+    
+        
+        {% for package in packages|slice:3 %} 
+         <div class="card">
+             <div class="package package-sanaa">
+                 <div class="package__picture package__picture--{{ package.id }}">
+                    <img src="{{ package.image.url }}" alt="Package image">
+                 </div>
+
+                 <div class="package__heading">
+                     <span class="package__heading--span heading-3">{{ package.destination }}</span>
+                 </div>
+
+                 <div class="package__details">
+                     <ul>
+                         <li>{{ package.description }}.</li>
+                         <li>{{ package.duration }} day tours.</li>
+                         <li id="cost">{{ package.cost }}$ per person.</li>
+                     </ul>
+                 </div>
+                 <div class="u-center-text">
+                     <a href="{% url 'book' package.slug %}" class="book-btn">Book Now</a>
+                 </div>
+             </div>
+         </div>
+        {% endfor %} 
+        </div>
+
+
+
+    <div class="u-center-text">
+        <a href="{% url 'packages' %}" class="btn-text">View all<span>&rarr;</span></a> 
+     </div>
+</section>
+
+
+    <section class="gallery">
+        <figure class="gallery__item gallery__item--1">
+            <img src="{% static 'media/tabuk1.jpeg' %}" alt="Gallery item 1" class="gallery__img" titl="Al-shaib mosque, Sana'a">
+            <p class="gallery__img-description">Camels and desert coverd in snow</p>
+        </figure>
+
+        <figure class="gallery__item gallery__item--2">
+            <img src="{% static 'media/tabuk2.jpeg' %}" alt="Gallery item 2" class="gallery__img">
+            <p class="gallery__img-description">Mountains covered in snow</p>
+        </figure>
+
+        <figure class="gallery__item gallery__item--3">
+            <img src="{% static 'media/tabuk3.jpeg' %}" alt="Gallery item 3" class="gallery__img">
+            <p class="gallery__img-description">Sand dunes</p>
+        </figure>
+
+        <figure class="gallery__item gallery__item--4">
+            <img src="{% static 'media/tabuk4.jpeg' %}" alt="Gallery item 4" class="gallery__img">
+            <p class="gallery__img-description">Tabuk</p>
+        </figure>
+
+        <figure class="gallery__item gallery__item--5">
+            <img src="{% static 'media/tabuk5.jpeg' %}" alt="Gallery item 5" class="gallery__img">
+            <p class="gallery__img-description">Tabuk</p>
+        </figure>
+
+        <figure class="gallery__item gallery__item--6">
+            <img src="{% static 'media/tabuk7.jpeg' %}" alt="Gallery item 6" class="gallery__img">
+            <p class="gallery__img-description">Red Sand Dune, NEOM</p>
+        </figure>
+
+        <figure class="gallery__item gallery__item--7">
+            <img src="{% static 'media/tabuk6.jpeg' %}" alt="Gallery item 7" class="gallery__img">
+            <p class="gallery__img-description">Tabuk</p>
+        </figure>
+
+        <figure class="gallery__item gallery__item--8">
+            <img src="{% static 'media/aldessa.jpeg' %}" alt="Gallery item 8" class="gallery__img">
+            <p class="gallery__img-description">Al-Desaa valley</p>
+        </figure>
+
+        <figure class="gallery__item gallery__item--9">
+            <img src="{% static 'media/tabuk8.jpg' %}" alt="Gallery item 9" class="gallery__img">
+            <p class="gallery__img-description">Tabuk</p>
+        </figure>
+
+        <figure class="gallery__item gallery__item--10">
+            <img src="{% static 'media/tabuk9.jpg' %}" alt="Gallery item 10" class="gallery__img">
+            <p class="gallery__img-description">Parks in Tabuk</p>
+        </figure>
+
+        <figure class="gallery__item gallery__item--11">
+            <img src="{% static 'media/tabuk10.jpg' %}" alt="Gallery item 11" class="gallery__img">
+            <p class="gallery__img-description">Tabuk</p>
+        </figure>
+
+        <figure class="gallery__item gallery__item--12">
+            <img src="{% static 'media/tabuk11.jpg' %}" alt="Gallery item 12" class="gallery__img">
+            <p class="gallery__img-description">Tabuk</p>
+        </figure>
+
+        <figure class="gallery__item gallery__item--13">
+            <img src="{% static 'media/tabuk12.jpg' %}" alt="Gallery item 13" class="gallery__img">
+            <p class="gallery__img-description">Tabuk</p>
+        </figure>
+
+        <figure class="gallery__item gallery__item--14">
+            <img src="{% static 'media/tabuk13.jpeg' %}" alt="Gallery item 14" class="gallery__img">
+            <p class="gallery__img-description">The night in Tabuk</p>
+        </figure>
+
+    </section>
+</main>
+
+{% endblock %}
